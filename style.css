@@ -1,0 +1,96 @@
+:root {
+	--primary-color: #11999e;
+	--bg-color: #ffffff;
+	--fg-color: #3c3c3c;
+	--red: #f05454;
+	--darken: #0001;
+	--hover-color: #f4f9f8;
+}
+
+.dark {
+	--primary-color: #ff79c6;
+	--bg-color: #282a36;
+	--fg-color: #f8f8f2;
+	--red: #ff5555;
+	--darken: #0003;
+	--hover-color: #333549;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	background-color: var(--bg-color);
+	width: 360px;
+	color: var(--fg-color);
+}
+
+.main-header {
+	padding: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: solid 1px var(--darken);
+}
+
+.main-title {
+	margin-left: 0.5rem;
+	font-weight: normal;
+}
+
+.icon--plus {
+	--size: 20px;
+	position: relative;
+	width: var(--size);
+	height: var(--size);
+}
+.icon--plus::before,
+.icon--plus::after {
+	position: absolute;
+	content: "";
+	background-color: var(--primary-color);
+}
+.icon--plus::before {
+	top: 50%;
+	width: var(--size);
+	height: 2px;
+	transform: translateY(-50%);
+}
+.icon--plus::after {
+	width: 2px;
+	height: var(--size);
+	left: 50%;
+	transform: translateX(-50%);
+}
+.icon--btn {
+	cursor: pointer;
+	border-radius: 50%;
+	padding: 0.5rem;
+	transition: 0.3s background-color;
+}
+.icon--btn:hover {
+	background-color: var(--darken);
+}
+
+.tasks-list {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--darken);
+	height: 400px;
+	overflow-y: auto;
+	gap: 1px;
+}
+
+.task {
+	padding: 0.8rem 1rem;
+	background-color: var(--bg-color);
+	transition-duration: 0.3s;
+	transition-property: transform, background-color;
+}
+.task:hover {
+	background-color: var(--hover-color);
+	transform: translateX(-40px);
+}
