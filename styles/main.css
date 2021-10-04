@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-content: center;
+}
+
+.hide {
+    display: none;
+}
+
+form>* {
+    margin: 5px auto;
+    padding: 5px;
+}
+
+#date,
+#time {
+    width: 48%;
+}
+
+#about {
+    width: 100%;
+}
+
+.task {
+    border: 1px solid violet;
+}
+
+.task {
+    margin: 5px auto;
+}
