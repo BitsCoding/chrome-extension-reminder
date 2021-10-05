@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Reminder</title>
-</head>
-<body>
-    <header class="main-header">
-        <h2 class="main-title">Reminders</h2>
-        <i class="icon icon--plus icon--btn"></i>
-    </header>
-    <main class="tasks-list">
-    </main>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Reminder</title>
+    </head>
+
+    <body>
+        <header id="main-header" class="main-header">
+            <i id="back-btn" class="icon icon--back icon--btn hidden"></i>
+            <h2 id="main-title">Reminders</h2>
+            <i id="add-btn" class="icon icon--plus icon--btn"></i>
+            <i id="save-btn" class="icon icon--plus icon--btn hidden"></i>
+        </header>
+        <main class="content">
+            <div id="tasks-list">
+                <div class="task">Do Something</div>
+                <div class="task">Do Something</div>
+            </div>
+            <div id="add-task-menu">
+                <form>
+                    <input id="title" name="title" placeholder="Add title" type="text">
+                    <div class="input" role="textbox" placeholder="Add detials" contenteditable></div>
+                    <input id="date" name="date" type="date">
+                    <input id="time" name="time" type="time">
+                    <select id="repeat">
+                        <option value="none">Does not repeat</option>
+                        <option value="daily">Every day</option>
+                        <option value="weekly">Every week</option>
+                        <option value="monthly">Every month</option>
+                        <option value="yearly">Every year</option>
+                    </select>
+                </form>
+            </div>
+        </main>
+        <script type="text/javascript" src="popup.js"></script>
+    </body>
+
 </html>
