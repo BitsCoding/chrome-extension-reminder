@@ -7,13 +7,15 @@
 	--hover-color: #f4f9f8;
 }
 
-.dark {
-	--primary-color: #ff79c6;
-	--bg-color: #282a36;
-	--fg-color: #f8f8f2;
-	--red: #ff5555;
-	--darken: #0003;
-	--hover-color: #333549;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--primary-color: #ff79c6;
+		--bg-color: #282a36;
+		--fg-color: #f8f8f2;
+		--red: #ff5555;
+		--darken: #0003;
+		--hover-color: #333549;
+	}
 }
 
 * {
@@ -36,16 +38,18 @@ body {
 	border-bottom: solid 1px var(--darken);
 }
 
-.main-title {
-	margin-left: 0.5rem;
+#main-title {
+	margin: 0 0.5rem;
 	font-weight: normal;
 }
 
+.icon {
+	width: 20px;
+	height: 20px;
+}
 .icon--plus {
 	--size: 20px;
 	position: relative;
-	width: var(--size);
-	height: var(--size);
 }
 .icon--plus::before,
 .icon--plus::after {
@@ -74,13 +78,36 @@ body {
 .icon--btn:hover {
 	background-color: var(--darken);
 }
+.icon--back {
+	--size: 10px;
+	position: relative;
+}
+.icon--back::before {
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 35%;
+	height: var(--size);
+	width: var(--size);
+	transform: rotate(-45deg);
+	transform-origin: top left;
+	border-left: solid 2px var(--primary-color);
+	border-top: solid 2px var(--primary-color);
+}
+.content {
+	position: relative;
+	width: 360px;
+	height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: var(--darken);
+}
 
-.tasks-list {
+#tasks-list {
+	position: absolute;
+	inset: 0;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--darken);
-	height: 400px;
-	overflow-y: auto;
 	gap: 1px;
 }
 
@@ -93,4 +120,99 @@ body {
 .task:hover {
 	background-color: var(--hover-color);
 	transform: translateX(-40px);
+}
+
+#add-task-menu {
+	position: absolute;
+	inset: 0;
+	transform: translateX(100%);
+}
+
+#add-task-menu form {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.input,
+input,
+textarea,
+select {
+	padding: 0.8em;
+	border: none;
+	background-color: var(--bg-color);
+	color: var(--fg-color);
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	outline-offset: -2px;
+}
+
+.input:focus,
+input:focus,
+textarea:focus,
+select:focus {
+	background-color: var(--hover-color);
+	outline: 2px solid var(--primary-color);
+}
+
+.input[contenteditable]:empty::before {
+	content: attr(placeholder);
+	color: gray;
+}
+
+.hidden {
+	display: none;
+}
+
+.slide-out {
+	animation: slide-out 0.3s both cubic-bezier(1, 0, 0, 1);
+}
+
+.slide-in {
+	animation: slide-in 0.3s both cubic-bezier(1, 0, 0, 1);
+}
+
+.slide-back-in {
+	animation: slide-back-in 0.3s both cubic-bezier(1, 0, 0, 1);
+}
+
+.slide-back-out {
+	animation: slide-back-out 0.3s both cubic-bezier(1, 0, 0, 1);
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-back-out {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes slide-back-in {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
