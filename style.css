@@ -44,8 +44,9 @@ body {
 }
 
 .icon {
-	width: 20px;
-	height: 20px;
+	font-size: 20px;
+	width: 1em;
+	height: 1em;
 }
 .icon--plus {
 	--size: 20px;
@@ -123,15 +124,12 @@ body {
 }
 
 #add-task-menu {
-	position: absolute;
-	inset: 0;
-	transform: translateX(100%);
-}
-
-#add-task-menu form {
 	display: flex;
 	flex-direction: column;
 	gap: 1px;
+	position: absolute;
+	inset: 0;
+	transform: translateX(100%);
 }
 
 .input,
@@ -140,25 +138,47 @@ textarea,
 select {
 	padding: 0.8em;
 	border: none;
-	background-color: var(--bg-color);
+	background-color: inherit;
 	color: var(--fg-color);
 	display: block;
 	width: 100%;
 	box-sizing: border-box;
-	outline-offset: -2px;
-}
-
-.input:focus,
-input:focus,
-textarea:focus,
-select:focus {
-	background-color: var(--hover-color);
-	outline: 2px solid var(--primary-color);
+	outline: none;
+	font-size: 1rem;
 }
 
 .input[contenteditable]:empty::before {
 	content: attr(placeholder);
-	color: gray;
+	color: var(--fg-color);
+}
+
+.form__field {
+	display: flex;
+	background-color: var(--bg-color);
+	align-items: center;
+	position: relative;
+}
+.form__field:focus-within {
+	background-color: var(--hover-color);
+	outline: 2px solid var(--primary-color);
+	outline-offset: -2px;
+}
+.form__field .icon {
+	margin-left: 0.8rem;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+	inset: 0;
+	width: auto;
+	height: auto;
+	color: transparent;
+	background: transparent;
+}
+
+svg {
+	display: block;
 }
 
 .hidden {
