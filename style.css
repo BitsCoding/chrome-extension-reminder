@@ -5,6 +5,7 @@
 	--red: #f05454;
 	--darken: #0001;
 	--hover-color: #f4f9f8;
+	--mute-fg-color: #9c9c9c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,7 @@
 		--red: #ff5555;
 		--darken: #0003;
 		--hover-color: #333549;
+		--mute-fg-color: #a8a8a2;
 	}
 }
 
@@ -95,6 +97,18 @@ body {
 	border-left: solid 2px var(--primary-color);
 	border-top: solid 2px var(--primary-color);
 }
+.icon--delete {
+	content: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 24 24' width='1em' fill='%23eee'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z'/%3E%3C/svg%3E");
+}
+.btn {
+	background: none;
+	border: none;
+	padding: 0.5rem;
+	cursor: pointer;
+}
+.btn--red {
+	background-color: var(--red);
+}
 .content {
 	position: relative;
 	width: 360px;
@@ -110,17 +124,60 @@ body {
 	display: flex;
 	flex-direction: column;
 	gap: 1px;
+	overflow-x: hidden;
 }
 
 .task {
-	padding: 0.8rem 1rem;
+	display: flex;
+	position: relative;
 	background-color: var(--bg-color);
 	transition-duration: 0.3s;
-	transition-property: transform, background-color;
+	transition-property: transform;
 }
 .task:hover {
-	background-color: var(--hover-color);
 	transform: translateX(-40px);
+}
+.task__content {
+	padding: 0.8rem 1rem;
+	display: grid;
+	grid-template-columns: 1fr min-content;
+	column-gap: 0.5rem;
+	font-size: 1rem;
+	transition: 0.3s background-color;
+	cursor: pointer;
+	width: 100%;
+}
+.task__content:hover {
+	background-color: var(--hover-color);
+}
+.task__action {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 100%;
+}
+.task__title,
+.task__desc,
+.task__time,
+.task__time-left {
+	white-space: nowrap;
+}
+.task__title,
+.task__desc {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.task__time,
+.task__time-left {
+	text-align: right;
+}
+.task__time {
+	color: var(--primary-color);
+}
+.text-muted {
+	font-size: 0.8rem;
+	color: var(--mute-fg-color);
 }
 
 #add-task-menu {
