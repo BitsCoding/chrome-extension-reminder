@@ -16,7 +16,7 @@
 }
 
 .align-center {
-    align-content: center;
+    align-items: center;
 }
 
 .hide {
@@ -38,9 +38,43 @@ form>* {
 }
 
 .task {
-    border: 1px solid violet;
+    margin: 5px auto;
+    background-color: rgba(199, 194, 194, 0.281);
+    box-shadow: 1px 2px 2px #888888;
 }
 
-.task {
-    margin: 5px auto;
+.task_detail {
+    padding: 5px;
+}
+
+.done {
+    cursor: pointer;
+    background-color: rgb(48, 179, 48);
+    color: white;
+    font-size: 35px;
+    padding: 5px;
+}
+
+.done:hover {
+    background-color: rgb(63, 175, 156);
+}
+
+.time {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.about,
+textarea,
+input,
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 20px;
 }
