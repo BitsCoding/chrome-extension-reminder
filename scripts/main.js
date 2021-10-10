@@ -1,5 +1,4 @@
 $('#add__task').click(function() {
-    console.log('hello');
     var date = new Date($('#date').val());
     var time = $('#time').val();
     var about = $('#about').val();
@@ -7,18 +6,26 @@ $('#add__task').click(function() {
         return;
     }
     var task = `<div class="task">
-        <div class="flex space-between align-center">
-            <div>
-                <h4>${date.toDateString()}</h4>
-                <p>${time}</p>
-            </div>
-            <div>
-                <h5>completed icon</h5>
-            </div>
-        </div>
-        <p>${about}</p>
-    </div>`;
+                    <div class="flex space-between">
+                        <div class="task_detail">
+                            <h4>${date.toDateString()}</h4>
+                            <p class="time">${time}</p>
+                            <p class="about">${about}</p>
+                        </div>
+                        <div onclick="destroy(this)" class="done flex flex-center align-center">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>`;
     $('#task__list').append(task);
+
+    $('#date').val('');
+    $('#time').val('');
+    $('#about').val('');
 
     return false;
 });
+
+function destroy(element) {
+    $(element).parent().remove();
+}
