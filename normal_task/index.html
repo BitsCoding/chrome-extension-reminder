@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder</title>
+    <script src="../scripts/moment.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="font_awesome.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div style="width: 400px; margin: auto;">
+        <div class="form">
+
+            <div class="flex space-between">
+                <input type="date" id="date" name="date" required>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="flex">
+                <textarea placeholder="description...." name="about" id="about" required></textarea>
+            </div>
+            <button type="submit" id="add__task">Add Task</button>
+        </div>
+        <div class="tasks_display" id="task__list">
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "Reminder",
+    "description": "A tasks reminder extension",
+    "version": "2.0",
+    "manifest_version": 3,
+    "permissions": ["storage", "notifications"],
+    "action": {
+        "default_popup": "index.html"
+    }
+}
