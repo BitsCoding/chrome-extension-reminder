@@ -23,7 +23,7 @@
     display: none;
 }
 
-form>* {
+.form>* {
     margin: 5px auto;
     padding: 5px;
 }
